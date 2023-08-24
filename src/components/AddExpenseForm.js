@@ -45,7 +45,7 @@ const AddExpenseForm = (props) => {
 				Add Expense
 			</button>
 			<form className={`border border-dark p-3 ${showExpenseForm ? '' : 'd-none'}`} onSubmit={onSubmit}>
-				<CatFact />
+				<CatFact show={showExpenseForm} />
 				<div className='row'>
 					<div className='col'>
 						<label htmlFor='name'>Item</label>

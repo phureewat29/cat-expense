@@ -1,11 +1,15 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
-const CatFact = () => {
-  const [fact, setFact] = useState(() => {
-    fetch('https://catfact.ninja/fact')
-      .then(response => response.json())
-      .then(data => setFact(data.fact))
-  })
+const CatFact = ({ show }) => {
+  const [fact, setFact] = useState('')
+
+  useEffect(() => {
+    if (show) {
+      fetch('https://catfact.ninja/fact')
+        .then(response => response.json())
+        .then(data => setFact(data.fact))
+    }
+  }, [show]);
 
   return (
     <blockquote className='blockquote'>
